@@ -38,16 +38,13 @@
     return value && LANGS[value] ? value : null;
   }
 
+  // English is the default for every visitor; a stored choice and ?lang= win.
   function detect() {
     const stored = store.read();
     if (stored && LANGS[stored]) return stored;
     const query = fromQuery();
     if (query) return query;
-    const nav = (navigator.languages || [navigator.language || "el"]).map((l) => String(l).slice(0, 2).toLowerCase());
-    if (nav.includes("el")) return "el";
-    if (nav.includes("ru")) return "ru";
-    if (nav.includes("en")) return "en";
-    return "el";
+    return "en";
   }
 
   function setName(selector, value) {
@@ -84,8 +81,7 @@
     button.addEventListener("click", () => apply(button.dataset.lang, true));
   });
 
-  const start = fromQuery() || detect();
-  apply(start, false);
+  apply(detect(), false);
 
   const year = document.querySelector("#year");
   if (year) year.textContent = String(new Date().getFullYear());
