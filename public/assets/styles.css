@@ -333,3 +333,8 @@ b{font-weight:650;color:inherit}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
 }
+
+/* ── 404 ─────────────────────────────────────────────────── */
+.page-404 .stage{min-height:52svh}
+.page-404 .headline{font-size:clamp(2rem,5.6vw,3.2rem)}
+.page-404 .lede a{color:var(--teal);text-decoration:none;border-bottom:1px solid var(--teal-soft)}
