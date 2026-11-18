@@ -45,3 +45,15 @@ docker run --rm -p 8080:80 arknoah-greece-soon
 
 Content is intentionally limited to facts the office can stand behind:
 no opening date, no phone number, no street address, no case numbers.
+
+## Coolify resource (record)
+
+- Coolify: `http://51.91.121.80:8000` (Coolify 4.7.5)
+- Project: `Ark Noahs Greece` — `qalaubg5acytxl4cqhxgyprs`
+- Application: `arknoah.gr` — `ryfyrbwlfagqezgxiz9hwyda`
+- Health: `https://arknoah.gr/healthz` → `ok`, container healthcheck `healthy`
+- TLS: Let's Encrypt via Traefik, `arknoah.gr` + `www.arknoah.gr`
+- Redirects: `http://*` → `https://`, `www.arknoah.gr` → `https://arknoah.gr` (301, single hop)
+
+To change the copy, edit `public/index.html` (the three `data-copy` blocks), push to `main`,
+then deploy the application from Coolify.
